@@ -15,6 +15,13 @@ from collections import Counter
 
 def pickingNumbers(a):
     # Write your code here
+    a = Counter(a)
+    maximum = 0
+    for i in sorted(a):
+        m = a[i]+a.get(i+1,0)
+        if maximum<m:
+            maximum=m
+    return maximum
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
